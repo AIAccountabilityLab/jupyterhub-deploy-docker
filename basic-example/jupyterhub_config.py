@@ -32,8 +32,8 @@ c.DockerSpawner.notebook_dir = notebook_dir
 # notebook directory in the container
 c.DockerSpawner.volumes = {"jupyterhub-user-{username}": notebook_dir}
 
-c.DockerSpawner.mounts = {
-        'source' : '/home/annserver/project_data', 'target' : '/home/jovyan/project_data', 'mode': 'ro'
+c.DockerSpawner.read_only_volumes = {
+        '/home/annserver/project_data':'/home/jovyan/project_data'
 }
 
 # Remove containers once they are stopped

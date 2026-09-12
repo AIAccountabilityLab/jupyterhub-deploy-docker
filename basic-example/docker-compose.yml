@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: Dockerfile.jupyterhub
       args:
-        JUPYTERHUB_VERSION: latest
+        JUPYTERHUB_VERSION: 5
     restart: always
     image: jupyterhub
     container_name: jupyterhub
@@ -32,7 +32,8 @@ services:
       # All containers will join this network
       DOCKER_NETWORK_NAME: jupyterhub-network
       # JupyterHub will spawn this Notebook image for users
-      DOCKER_NOTEBOOK_IMAGE: quay.io/jupyter/datascience-notebook
+      #DOCKER_NOTEBOOK_IMAGE: quay.io/jupyter/datascience-notebook
+      DOCKER_NOTEBOOK_IMAGE: vscode-image-datascience-vscode:latest
       # Notebook directory inside user image
       DOCKER_NOTEBOOK_DIR: /home/jovyan/work
 

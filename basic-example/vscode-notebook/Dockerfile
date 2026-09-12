@@ -1,4 +1,6 @@
 FROM quay.io/jupyter/datascience-notebook:2026-09-01 
+
+# The following from: https://discourse.jupyter.org/t/how-to-configure-jupyterhub-to-run-code-server/11578/9
 # Fix: https://github.com/hadolint/hadolint/wiki/DL4006
 # Fix: https://github.com/koalaman/shellcheck/wiki/SC3014
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -21,7 +23,7 @@ RUN apt-get update --yes && \
     apt-get --quiet clean && rm -rf /var/lib/apt/lists/*
 
 # Installation de Code Server et server-proxy/vscode-proxy pour intégrer Code dans JupyterLab
-ENV CODE_VERSION=v4.136.2
+ENV CODE_VERSION=4.136.2
 RUN curl -fOL https://github.com/coder/code-server/releases/download/v$CODE_VERSION/code-server_${CODE_VERSION}_amd64.deb \
     && dpkg -i code-server_${CODE_VERSION}_amd64.deb \
     && rm -f code-server_${CODE_VERSION}_amd64.deb

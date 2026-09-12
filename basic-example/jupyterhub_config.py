@@ -66,6 +66,7 @@ c.ServerProxy.servers = {
        "command": ["code-server", "--bind-addr", "localhost:{port}", "--auth", "none"]
    }
 }
+c.Spawner.default_url = "/vscode"
 
 # Allowed admins
 admin = os.environ.get("JUPYTERHUB_ADMIN")

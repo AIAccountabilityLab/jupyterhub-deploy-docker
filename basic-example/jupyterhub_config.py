@@ -61,13 +61,6 @@ c.JupyterHub.authenticator_class = "nativeauthenticator.NativeAuthenticator"
 # Allow anyone to sign-up without approval
 c.NativeAuthenticator.open_signup = False
 
-c.ServerProxy.servers = {
-   "vscode": {
-       "command": ["code-server", "--bind-addr", "localhost:{port}", "--auth", "none"]
-   }
-}
-c.Spawner.default_url = "/vscode"
-
 # Allowed admins
 admin = os.environ.get("JUPYTERHUB_ADMIN")
 if admin:

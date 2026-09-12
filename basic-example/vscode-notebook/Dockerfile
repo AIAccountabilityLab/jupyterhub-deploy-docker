@@ -27,8 +27,8 @@ ENV CODE_VERSION=4.136.2
 RUN curl -fOL https://github.com/coder/code-server/releases/download/v$CODE_VERSION/code-server_${CODE_VERSION}_amd64.deb \
     && dpkg -i code-server_${CODE_VERSION}_amd64.deb \
     && rm -f code-server_${CODE_VERSION}_amd64.deb
-RUN /opt/conda/bin/conda install -c conda-forge jupyter-server-proxy
-RUN /opt/conda/bin/conda install -c conda-forge jupyter-vscode-proxy
+RUN pip install jupyter-server-proxy
+RUN pip install jupyter-vscode-proxy
 
 # Installation du bureau XFCE et de l'extention Desktop server pour avoir un affichage graphique
 RUN apt-get update --yes --quiet && \
@@ -36,8 +36,8 @@ RUN apt-get update --yes --quiet && \
     dbus-x11 xfce4 xfce4-panel xfce4-session xfce4-settings xorg xubuntu-icon-theme tigervnc-standalone-server && \
     apt-get remove --yes --quiet light-locker && \
     apt-get clean --quiet && rm -rf /var/lib/apt/lists/*
-RUN /opt/conda/bin/conda install -c manics websockify && \
-    pip install jupyter-remote-desktop-proxy
- 
+#RUN /opt/conda/bin/conda install -c manics websockify && \
+#    pip install jupyter-remote-desktop-proxy
+RUN     pip install jupyter-remote-desktop-proxy
 # Switch back to jovyan to avoid accidental container runs as root
 USER ${NB_UID}

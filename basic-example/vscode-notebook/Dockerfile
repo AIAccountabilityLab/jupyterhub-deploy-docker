@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/datascience-notebook:2026-09-01 
+FROM quay.io/jupyter/datascience-notebook:2026-10-28 
 
 # The following from: https://discourse.jupyter.org/t/how-to-configure-jupyterhub-to-run-code-server/11578/9
 # Fix: https://github.com/hadolint/hadolint/wiki/DL4006

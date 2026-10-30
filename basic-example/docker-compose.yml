@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: Dockerfile.jupyterhub
       args:
-        JUPYTERHUB_VERSION: 5
+        JUPYTERHUB_VERSION: 5.5.4
     restart: always
     image: jupyterhub
     container_name: jupyterhub
